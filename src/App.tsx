@@ -2,14 +2,29 @@ import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { createClient } from '@supabase/supabase-js'
 import { Database, Event, Character} from './database.types'
-import { Flex, Center, Select, FormControl, FormErrorMessage, Input, Box, Button} from '@chakra-ui/react'
+import { Flex, Center, Select, FormControl, FormErrorMessage, Spacer, Input, Box, Button} from '@chakra-ui/react'
 import './App.css'
 
 const supabaseUrl = 'https://bnptqkapdobymqdnlowf.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJucHRxa2FwZG9ieW1xZG5sb3dmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxMzU4MTU4NiwiZXhwIjoyMDI5MTU3NTg2fQ.XNpkqEFgYu2ur7MpTIr2XtWqSSZyUzgJmVqp20rGNSo'
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
-const matches = [['Aamer', 'Chris', 'Kirk', 'Sasha'], ['Javier', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Javier', 'Kirk', 'Coleman'], ['Aamer', 'Billy', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Sasha'], ['Billy', 'Chris', 'Kirk', 'Sasha'], ['Aamer', 'Billy', 'Javier', 'Kirk'], ['Aamer', 'Chris', 'Kirk', 'Coleman'], ['Chris', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Javier', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Sasha'], ['Billy', 'Chris', 'Javier', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Javier', 'Sasha', 'Coleman']]
+const matches = [
+  ['Aamer', 'Chris', 'Kirk', 'Sasha'], 
+  ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
+  ['Aamer', 'Javier', 'Kirk', 'Coleman'], 
+  ['Aamer', 'Billy', 'Sasha', 'Coleman'], 
+  ['Aamer', 'Billy', 'Chris', 'Sasha'], 
+  ['Billy', 'Chris', 'Kirk', 'Sasha'], 
+  ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+  ['Aamer', 'Chris', 'Kirk', 'Coleman'], 
+  ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
+  ['Aamer', 'Billy', 'Javier', 'Coleman'], 
+  ['Billy', 'Chris', 'Javier', 'Sasha'], 
+  ['Billy', 'Chris', 'Javier', 'Coleman'], 
+  ['Billy', 'Chris', 'Javier', 'Kirk'], 
+  ['Aamer', 'Javier', 'Sasha', 'Coleman']
+]
 
 type Player = Database['public']['Tables']['players']['Row']
 
@@ -38,7 +53,7 @@ function App() {
         .from('scores')
         .insert([
           { event: selectedEvent?.id,
-            match: matchIndex,
+            match: matchIndex + 1,
             player: players?.filter((player)=>player.name==matches[matchIndex][i])[0].id,
             score: values[`score_${i+1}`],
             character: selectedCharacters[i].id
@@ -150,6 +165,12 @@ function App() {
                   </Box>
                 </Flex>
               )}
+              <Flex flexDir='row' justify={'space-between'} alignItems='center' gap='2'>
+                <Spacer />
+                <Box>Match #:</Box>
+                <Input id={'inputMatchIndex'} value={matchIndex+1} width='auto' onChange={(e)=>setMatchIndex(parseInt(e.currentTarget.value)-1)}/>
+                <Spacer />
+              </Flex>
               <FormErrorMessage>
                 {errors.name && typeof errors.name.message == 'string' && errors.name.message}
               </FormErrorMessage>
