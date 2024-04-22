@@ -9,23 +9,7 @@ const supabaseUrl = 'https://bnptqkapdobymqdnlowf.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJucHRxa2FwZG9ieW1xZG5sb3dmIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTcxMzU4MTU4NiwiZXhwIjoyMDI5MTU3NTg2fQ.XNpkqEFgYu2ur7MpTIr2XtWqSSZyUzgJmVqp20rGNSo'
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
-const matches = [
-  ["Dummy", "Dummy", "Dummy", "Dummy"],
-  ["Dummy", "Dummy", "Dummy", "Dummy"],
-  ["Dummy", "Dummy", "Dummy", "Dummy"],
-  ["Dummy", "Dummy", "Dummy", "Dummy"],
-  ["Dummy", "Dummy", "Dummy", "Dummy"],
-  ["Sasha", "Kirk", "Javier", "Chris"],
-  ["Aamer", "Chris", "Coleman", "Billy"],
-  ["Billy", "Kirk", "Aamer", "Chris"],
-  ["Sasha", "Kirk", "Javier", "Aamer"],
-  ["Billy", "Kirk", "Sasha", "Coleman"],
-  ["Aamer", "Chris", "Coleman", "Javier"],
-  ["Coleman", "Billy", "Chris", "Kirk"],
-  ["Javier", "Chris", "Coleman", "Sasha"],
-  ["Kirk", "Sasha", "Aamer", "Chris"],
-  ["Billy", "Javier", "Sasha", "Coleman"]
-]
+const matches = [['Aamer', 'Chris', 'Kirk', 'Sasha'], ['Javier', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Javier', 'Kirk', 'Coleman'], ['Aamer', 'Billy', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Sasha'], ['Billy', 'Chris', 'Kirk', 'Sasha'], ['Aamer', 'Billy', 'Javier', 'Kirk'], ['Aamer', 'Chris', 'Kirk', 'Coleman'], ['Chris', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Javier', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Sasha'], ['Billy', 'Chris', 'Javier', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Javier', 'Sasha', 'Coleman']]
 
 type Player = Database['public']['Tables']['players']['Row']
 
@@ -40,7 +24,7 @@ function App() {
   const [selectedEvent, setSelectedEvent] = useState<Event>()
   const [characters, setCharacters] = useState<Array<Character>>([])
   const [selectedCharacters, setSelectedCharacters] = useState<Array<Character>>([])
-  const [matchIndex, setMatchIndex] = useState<number>(8)
+  const [matchIndex, setMatchIndex] = useState<number>(0)
 
   const {
     handleSubmit,
