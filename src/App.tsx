@@ -14,15 +14,15 @@ const matches = [
   ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
   ['Aamer', 'Javier', 'Kirk', 'Coleman'], 
   ['Aamer', 'Billy', 'Sasha', 'Coleman'], 
-  ['Aamer', 'Billy', 'Chris', 'Sasha'], 
-  ['Billy', 'Chris', 'Kirk', 'Sasha'], 
+  ['Aamer', 'Billy', 'Chris', 'Sasha'],
+  ['Billy', 'Chris', 'Javier', 'Coleman'], 
   ['Aamer', 'Billy', 'Javier', 'Kirk'], 
   ['Aamer', 'Chris', 'Kirk', 'Coleman'], 
   ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
   ['Aamer', 'Billy', 'Javier', 'Coleman'], 
   ['Billy', 'Chris', 'Javier', 'Sasha'], 
-  ['Billy', 'Chris', 'Javier', 'Coleman'], 
-  ['Billy', 'Chris', 'Javier', 'Kirk'], 
+  ['Billy', 'Chris', 'Kirk', 'Sasha'], 
+  ['Billy', 'Chris', 'Javier', 'Kirk'],
   ['Aamer', 'Javier', 'Sasha', 'Coleman']
 ]
 
