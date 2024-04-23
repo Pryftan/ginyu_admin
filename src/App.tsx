@@ -40,6 +40,7 @@ function App() {
   const [characters, setCharacters] = useState<Array<Character>>([])
   const [selectedCharacters, setSelectedCharacters] = useState<Array<Character>>([])
   const [matchIndex, setMatchIndex] = useState<number>(0)
+  const [isCovered, setIsCovered] = useState(false)
 
   const {
     handleSubmit,
@@ -69,6 +70,15 @@ function App() {
     const newSelections = selectedCharacters
     newSelections[index] = characters.filter(({id})=>id==newID)[0]
     setSelectedCharacters(newSelections)
+  }
+
+  const onCoverSelect = async () => {
+    const { error } = await supabase
+      .from('states')
+      .update({'enabled': !isCovered})
+      .eq('id','cover')
+    setErrorMessage(error?.message || '')
+    setIsCovered(!isCovered)
   }
 
   const getEvents = async () => {
@@ -184,6 +194,9 @@ function App() {
       {errorMessage && 
         <p>{errorMessage}</p>
       }
+      <Center>
+        <Button onClick={onCoverSelect} w={'20%'}>DK Cover</Button>
+      </Center>
       </Flex>
     </Center>
   )
