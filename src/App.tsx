@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import { createClient } from '@supabase/supabase-js'
-import { Database, Event, Character} from './database.types'
+import { Database} from './database.types'
 import { Flex, Center, Select, FormControl, FormErrorMessage, Spacer, Input, Box, Button} from '@chakra-ui/react'
 import './App.css'
 
@@ -27,6 +27,8 @@ const matches = [
 ]
 
 type Player = Database['public']['Tables']['players']['Row']
+type Event = Database['public']['Tables']['events']['Row']
+type Character = Database['public']['Tables']['characters']['Row']
 
 interface PlayerProcessed extends Omit<Player, 'characters'>{
   characters: Array<string>
