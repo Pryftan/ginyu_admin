@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 275 275" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <style bx:fonts="Abhaya Libre">@import url(https://fonts.googleapis.com/css2?family=Abhaya+Libre%3Aital%2Cwght%400%2C400%3B0%2C500%3B0%2C600%3B0%2C700%3B0%2C800&amp;display=swap);</style>
+  </defs>
+  <clipPath id="c">
+    <path d="m0,0h54v155H0m0,25h54v92H0M115,0h160v155H115m0,25h160v92H115"/>
+  </clipPath>
+  <circle clip-path="url(#c)" cx="137" cy="137" r="130" fill="#E10D05"/>
+  <text style="fill: rgb(61, 3, 3); font-family: 'Abhaya Libre'; font-size: 145.783px; font-style: italic; font-weight: 800; white-space: pre;" transform="matrix(2.119637966156006, 0, 0, 2.318511962890625, -44.57890319824219, -97.67671966552734)" x="32.816" y="138.844">A</text>
+</svg>
