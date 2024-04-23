@@ -76,6 +76,15 @@ function App() {
   }
 
   const onCoverSelect = async (type: string) => {
+    if (isCovered) {
+      const { error } = await supabase
+      .from('states')
+      .update({'enabled': !isCovered})
+      .eq('id','cover')
+      setErrorMessage(error?.message || '')
+      setIsCovered(!isCovered)
+      return
+    }
     var coverData = {}
     if (type == 'DK') {
       coverData = {
