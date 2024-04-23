@@ -74,10 +74,26 @@ function App() {
     setSelectedCharacters(newSelections)
   }
 
-  const onCoverSelect = async () => {
+  const onCoverSelect = async (type: string) => {
+    var coverData = {}
+    if (type == 'DK') {
+      coverData = {
+        "image": "/covers/dk_shrug.png",
+        "size": 1200,
+        "top": -300,
+        "hides": true
+      }
+    } else if (type == 'Yoshi') {
+      coverData = {
+        "image": "/covers/yoshi_egg.png",
+        "size": 400,
+        "top": 70,
+        "hides": false
+      }
+    }
     const { error } = await supabase
       .from('states')
-      .update({'enabled': !isCovered})
+      .update({'enabled': !isCovered, data: coverData})
       .eq('id','cover')
     setErrorMessage(error?.message || '')
     setIsCovered(!isCovered)
@@ -197,7 +213,10 @@ function App() {
         <p>{errorMessage}</p>
       }
       <Center>
-        <Button onClick={onCoverSelect} w={'20%'}>DK Cover</Button>
+        <Button onClick={() => onCoverSelect('DK')} w={'20%'}>DK Cover</Button>
+      </Center>
+      <Center>
+        <Button onClick={() => onCoverSelect('Yoshi')} w={'20%'}>Yoshi Cover</Button>
       </Center>
       </Flex>
     </Center>
