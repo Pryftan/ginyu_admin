@@ -43,6 +43,7 @@ function App() {
   const [selectedCharacters, setSelectedCharacters] = useState<Array<Character>>([])
   const [matchIndex, setMatchIndex] = useState<number>(0)
   const [isCovered, setIsCovered] = useState(false)
+  const [selectedCover, setSelectedCover] = useState("DK")
 
   const {
     handleSubmit,
@@ -86,6 +87,27 @@ function App() {
     } else if (type == 'Yoshi') {
       coverData = {
         "image": "/covers/yoshi_egg.png",
+        "size": 400,
+        "top": 70,
+        "hides": false
+      }
+    } else if (type == 'Aamer') {
+      coverData = {
+        "image": "/covers/aamersrules.png",
+        "size": 400,
+        "top": 70,
+        "hides": false
+      }
+    } else if (type == 'Luigi') {
+      coverData = {
+        "image": "/covers/luigi.png",
+        "size": 400,
+        "top": 30,
+        "hides": false
+      }
+    } else if (type == 'Smash') {
+      coverData = {
+        "image": "/covers/smashball.png",
         "size": 400,
         "top": 70,
         "hides": false
@@ -212,12 +234,20 @@ function App() {
       {errorMessage && 
         <p>{errorMessage}</p>
       }
-      <Center>
-        <Button onClick={() => onCoverSelect('DK')} w={'20%'}>DK Cover</Button>
-      </Center>
-      <Center>
-        <Button onClick={() => onCoverSelect('Yoshi')} w={'20%'}>Yoshi Cover</Button>
-      </Center>
+        <Spacer p={3}/>
+        <Center>
+          <Flex w={'100%'}>
+            <Select defaultValue="DK"
+              onChange={(e: React.ChangeEvent<HTMLSelectElement>)=>{
+                setSelectedCover(e.currentTarget.value)
+            }}>
+              {["DK", "Yoshi", "Aamer", "Luigi", "Smash"].map((opt) =>
+                <option value={opt}>{opt}</option>
+              )}
+            </Select>
+            <Button onClick={() => onCoverSelect(selectedCover)}>{isCovered ? 'Uncover' : 'Cover'}</Button>
+          </Flex>
+        </Center>
       </Flex>
     </Center>
   )
