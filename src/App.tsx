@@ -44,6 +44,7 @@ function App() {
   const [matchIndex, setMatchIndex] = useState<number>(0)
   const [isCovered, setIsCovered] = useState(false)
   const [selectedCover, setSelectedCover] = useState("DK")
+  const [isFinished, setIsFinished] = useState(false)
 
   const {
     handleSubmit,
@@ -66,7 +67,11 @@ function App() {
         .select()
       setErrorMessage(error?.message || '')
     }
-    setMatchIndex(matchIndex+1)
+    if(matchIndex + 1 < matches.length) {
+      setMatchIndex(matchIndex+1)
+    } else {
+      setIsFinished(true)
+    }
   }
 
   const onCharacterSelect = (newID: number, index: number) => {
@@ -178,7 +183,7 @@ function App() {
   return (
     <Center>
       <Flex flexDir={'column'} p={3} w={'500px'}>
-      {events && players && characters && 
+      {events && players && characters && !isFinished &&
         <>
           <Select 
             onChange={(e: React.ChangeEvent<HTMLSelectElement>)=>{
