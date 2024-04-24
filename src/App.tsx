@@ -10,20 +10,20 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
 const matches = [
-  ['Aamer', 'Chris', 'Kirk', 'Sasha'], 
-  ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
-  ['Aamer', 'Javier', 'Kirk', 'Coleman'], 
-  ['Aamer', 'Billy', 'Sasha', 'Coleman'], 
-  ['Aamer', 'Billy', 'Chris', 'Sasha'],
-  ['Billy', 'Chris', 'Javier', 'Coleman'], 
-  ['Aamer', 'Billy', 'Javier', 'Kirk'], 
-  ['Aamer', 'Chris', 'Kirk', 'Coleman'], 
-  ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
   ['Aamer', 'Billy', 'Javier', 'Coleman'], 
+  ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+  ['Aamer', 'Javier', 'Sasha', 'Coleman'], 
+  ['Billy', 'Chris', 'Kirk', 'Coleman'], 
   ['Billy', 'Chris', 'Javier', 'Sasha'], 
-  ['Billy', 'Chris', 'Kirk', 'Sasha'], 
-  ['Billy', 'Chris', 'Javier', 'Kirk'],
-  ['Aamer', 'Javier', 'Sasha', 'Coleman']
+  ['Aamer', 'Kirk', 'Sasha', 'Coleman'], 
+  ['Chris', 'Javier', 'Kirk', 'Sasha'], 
+  ['Aamer', 'Billy', 'Javier', 'Sasha'], 
+  ['Aamer', 'Billy', 'Kirk', 'Coleman'], 
+  ['Billy', 'Chris', 'Javier', 'Kirk'], 
+  ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
+  ['Aamer', 'Billy', 'Chris', 'Coleman'], 
+  ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
+  ['Aamer', 'Billy', 'Chris', 'Sasha']
 ]
 
 type Player = Database['public']['Tables']['players']['Row']
