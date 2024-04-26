@@ -73,6 +73,7 @@ function App() {
     } else {
       setIsFinished(true)
     }
+    setLivePlayers(matches[matchIndex+1])
   }
 
   const onCharacterSelect = (newID: number, index: number) => {
@@ -186,10 +187,14 @@ function App() {
       setLive(stateData?.filter((state)=>state.id=='playing')[0].enabled)
     }
     setErrorMessage(error3?.message || '')
+    setLivePlayers(matches[matchIndex])
+  }
+
+  const setLivePlayers = async (currentPlayers: Array<string>) => {
     let { error: error4 } = await supabase
-    .from('states')
-    .update({'data': {"players": matches[matchIndex]}})
-    .eq('id','playing')
+      .from('states')
+      .update({'data': {"players": currentPlayers}})
+      .eq('id','playing')
     setErrorMessage(error4?.message || '')
   }
 
@@ -197,7 +202,7 @@ function App() {
     await getEvents()
     await getData()
   }
-http://localhost:4001/ginyu_admin
+  
   useEffect(()=>{
     initialize()
   },[])
