@@ -44,6 +44,7 @@ function App() {
   const [matchIndex, setMatchIndex] = useState<number>(0)
   const [isCovered, setIsCovered] = useState(false)
   const [selectedCover, setSelectedCover] = useState("DK")
+  const [isLive, setLive] = useState(false)
   const [isFinished, setIsFinished] = useState(false)
 
   const {
@@ -135,6 +136,15 @@ function App() {
     setIsCovered(!isCovered)
   }
 
+  const onLiveSelect = async () => {
+    const { error } = await supabase
+      .from('states')
+      .update({'enabled': !isLive})
+      .eq('id','playing')
+    setErrorMessage(error?.message || '')
+    setLive(!isLive)
+  }
+
   const getEvents = async () => {
     let { data, error } = await supabase
       .from('events')
@@ -169,13 +179,25 @@ function App() {
       }
     }
     setErrorMessage(error2?.message || '')
+    let { data: stateData, error: error3 } = await supabase
+      .from('states')
+      .select('*')
+    if (stateData) {
+      setLive(stateData?.filter((state)=>state.id=='playing')[0].enabled)
+    }
+    setErrorMessage(error3?.message || '')
+    let { error: error4 } = await supabase
+    .from('states')
+    .update({'data': {"players": matches[matchIndex]}})
+    .eq('id','playing')
+    setErrorMessage(error4?.message || '')
   }
 
   const initialize = async () => {
     await getEvents()
     await getData()
   }
-
+http://localhost:4001/ginyu_admin
   useEffect(()=>{
     initialize()
   },[])
@@ -261,6 +283,12 @@ function App() {
             </Select>
             <Button onClick={() => onCoverSelect(selectedCover)}>{isCovered ? 'Uncover' : 'Cover'}</Button>
           </Flex>
+        </Center>
+        <Spacer p={3}/>
+        <Center>
+          <Button onClick={onLiveSelect}>
+            {isLive ? "Live off" : "Live on"}
+          </Button>
         </Center>
       </Flex>
     </Center>
