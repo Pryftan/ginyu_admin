@@ -26,22 +26,22 @@ const matchesAll = [[
   ['Aamer', 'Billy', 'Chris', 'Sasha']
 ],
   [
-    ['Billy', 'Chris', 'Coleman', 'Kirk'], 
+    ['Billy', 'Chris', 'Coleman', 'Kirk'],
     ['Aamer', 'Chris', 'Coleman', 'Kirk'], 
-    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'],
+    ['Aamer', 'Billy', 'Coleman', 'Kirk'], 
     ['Aamer', 'Chris', 'Coleman', 'Javier'], 
     ['Aamer', 'Coleman', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Coleman', 'Kirk'], 
-    ['Chris', 'Coleman', 'Javier', 'Kirk'], 
-    ['Billy', 'Chris', 'Javier', 'Kirk'],
     ['Aamer', 'Billy', 'Chris', 'Kirk'], 
-    ['Billy', 'Coleman', 'Javier', 'Kirk'], 
-    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Coleman', 'Javier'], 
     ['Aamer', 'Billy', 'Chris', 'Javier'], 
-    ['Aamer', 'Billy', 'Chris', 'Coleman'], 
+    ['Chris', 'Coleman', 'Javier', 'Kirk'], 
+    ['Billy', 'Coleman', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
     ['Aamer', 'Billy', 'Coleman', 'Javier'], 
-    ['Billy', 'Chris', 'Coleman', 'Javier']
-  ]  
+    ['Aamer', 'Billy', 'Chris', 'Coleman'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+  ]
 ]
 const matches = matchesAll[1]
 
