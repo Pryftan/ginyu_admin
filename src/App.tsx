@@ -9,7 +9,7 @@ const supabaseUrl = 'https://bnptqkapdobymqdnlowf.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJucHRxa2FwZG9ieW1xZG5sb3dmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM1ODE1ODYsImV4cCI6MjAyOTE1NzU4Nn0.00HoKGwNxSdzJjFHSoxbJSt0BqrtTMyNJQSRBqxcre8'
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
-const matches = [
+const matchesAll = [[
   ['Aamer', 'Billy', 'Javier', 'Coleman'], 
   ['Aamer', 'Chris', 'Javier', 'Kirk'], 
   ['Aamer', 'Javier', 'Sasha', 'Coleman'], 
@@ -24,7 +24,26 @@ const matches = [
   ['Aamer', 'Billy', 'Chris', 'Coleman'], 
   ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
   ['Aamer', 'Billy', 'Chris', 'Sasha']
+],
+  [
+    ['Billy', 'Chris', 'Coleman', 'Kirk'], 
+    ['Aamer', 'Chris', 'Coleman', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Coleman', 'Javier'], 
+    ['Aamer', 'Coleman', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Coleman', 'Kirk'], 
+    ['Chris', 'Coleman', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'],
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Billy', 'Coleman', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Chris', 'Coleman'], 
+    ['Aamer', 'Billy', 'Coleman', 'Javier'], 
+    ['Billy', 'Chris', 'Coleman', 'Javier']
+  ]  
 ]
+const matches = matchesAll[1]
 
 type Player = Database['public']['Tables']['players']['Row']
 type Event = Database['public']['Tables']['events']['Row']
