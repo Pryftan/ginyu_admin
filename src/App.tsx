@@ -9,41 +9,86 @@ const supabaseUrl = 'https://bnptqkapdobymqdnlowf.supabase.co'
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJucHRxa2FwZG9ieW1xZG5sb3dmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM1ODE1ODYsImV4cCI6MjAyOTE1NzU4Nn0.00HoKGwNxSdzJjFHSoxbJSt0BqrtTMyNJQSRBqxcre8'
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
-const matchesAll = [[
-  ['Aamer', 'Billy', 'Javier', 'Coleman'], 
-  ['Aamer', 'Chris', 'Javier', 'Kirk'], 
-  ['Aamer', 'Javier', 'Sasha', 'Coleman'], 
-  ['Billy', 'Chris', 'Kirk', 'Coleman'], 
-  ['Billy', 'Chris', 'Javier', 'Sasha'], 
-  ['Aamer', 'Kirk', 'Sasha', 'Coleman'], 
-  ['Chris', 'Javier', 'Kirk', 'Sasha'], 
-  ['Aamer', 'Billy', 'Javier', 'Sasha'], 
-  ['Aamer', 'Billy', 'Kirk', 'Coleman'], 
-  ['Billy', 'Chris', 'Javier', 'Kirk'], 
-  ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
-  ['Aamer', 'Billy', 'Chris', 'Coleman'], 
-  ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
-  ['Aamer', 'Billy', 'Chris', 'Sasha']
-],
+const matchesAll = [
   [
-    ['Billy', 'Chris', 'Coleman', 'Kirk'],
-    ['Aamer', 'Chris', 'Coleman', 'Kirk'], 
-    ['Aamer', 'Chris', 'Javier', 'Kirk'],
-    ['Aamer', 'Billy', 'Coleman', 'Kirk'], 
-    ['Aamer', 'Chris', 'Coleman', 'Javier'], 
-    ['Aamer', 'Coleman', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
-    ['Billy', 'Chris', 'Coleman', 'Javier'], 
-    ['Aamer', 'Billy', 'Chris', 'Javier'], 
-    ['Chris', 'Coleman', 'Javier', 'Kirk'], 
-    ['Billy', 'Coleman', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Coleman'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Javier', 'Sasha', 'Coleman'], 
+    ['Billy', 'Chris', 'Kirk', 'Coleman'], 
+    ['Billy', 'Chris', 'Javier', 'Sasha'], 
+    ['Aamer', 'Kirk', 'Sasha', 'Coleman'], 
+    ['Chris', 'Javier', 'Kirk', 'Sasha'], 
+    ['Aamer', 'Billy', 'Javier', 'Sasha'], 
+    ['Aamer', 'Billy', 'Kirk', 'Coleman'], 
     ['Billy', 'Chris', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Coleman', 'Javier'], 
+    ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
     ['Aamer', 'Billy', 'Chris', 'Coleman'], 
+    ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
+    ['Aamer', 'Billy', 'Chris', 'Sasha']
+  ],
+  [
+    ['Billy', 'Chris', 'Kirk', 'Sasha'], 
+    ['Aamer', 'Javier', 'Kirk', 'Coleman'], 
+    ['Aamer', 'Billy', 'Javier', 'Sasha'], 
+    ['Billy', 'Chris', 'Sasha', 'Coleman'], 
+    ['Aamer', 'Chris', 'Kirk', 'Sasha'], 
+    ['Aamer', 'Billy', 'Javier', 'Coleman'], 
+    ['Billy', 'Chris', 'Javier', 'Sasha'], 
     ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Kirk', 'Coleman'], 
+    ['Billy', 'Kirk', 'Sasha', 'Coleman'], 
+    ['Javier', 'Kirk', 'Sasha', 'Coleman'], 
+    ['Aamer', 'Chris', 'Javier', 'Coleman'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Sasha', 'Coleman']
+  ],
+  [
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Coleman', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Coleman', 'Kirk'], 
+    ['Billy', 'Chris', 'Coleman', 'Javier'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Coleman', 'Kirk'], 
+    ['Billy', 'Chris', 'Coleman', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Coleman', 'Javier'], 
+    ['Chris', 'Coleman', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Aamer', 'Chris', 'Coleman', 'Javier'], 
+    ['Aamer', 'Billy', 'Chris', 'Coleman'], 
+    ['Billy', 'Coleman', 'Javier', 'Kirk']
+  ],
+  [
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Chris', 'Kirk']
+  ],
+  [
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk']
   ]
 ]
-const matches = matchesAll[1]
 
 type Player = Database['public']['Tables']['players']['Row']
 type Event = Database['public']['Tables']['events']['Row']
@@ -61,6 +106,7 @@ function App() {
   const [characters, setCharacters] = useState<Array<Character>>([])
   const [selectedCharacters, setSelectedCharacters] = useState<Array<Character>>([])
   const [matchIndex, setMatchIndex] = useState<number>(0)
+  const [matchSetIndex, setMatchSetIndex] = useState<number>(0)
   const [isCovered, setIsCovered] = useState(false)
   const [selectedCover, setSelectedCover] = useState("DK")
   const [isLive, setLive] = useState(false)
@@ -79,7 +125,7 @@ function App() {
         .insert([
           { event: selectedEvent?.id,
             match: matchIndex + 1,
-            player: players?.filter((player)=>player.name==matches[matchIndex][i])[0].id,
+            player: players?.filter((player)=>player.name==matchesAll[matchSetIndex][matchIndex][i])[0].id,
             score: values[`score_${i+1}`],
             character: selectedCharacters[i].id
           },
@@ -87,12 +133,12 @@ function App() {
         .select()
       setErrorMessage(error?.message || '')
     }
-    if(matchIndex + 1 < matches.length) {
+    if(matchIndex + 1 < matchesAll[matchSetIndex].length) {
       setMatchIndex(matchIndex+1)
     } else {
       setIsFinished(true)
     }
-    setLivePlayers(matches[matchIndex+1])
+    setLivePlayers(matchesAll[matchSetIndex][matchIndex+1])
   }
 
   const onCharacterSelect = (newID: number, index: number) => {
@@ -195,7 +241,7 @@ function App() {
           )
         ))
         const firstCharacter = characterData[0]
-        setSelectedCharacters(matches[matchIndex].map((matchPlayer)=>(characterData?.filter((character)=>character.id==playerData?.filter(({name})=>matchPlayer==name)[0].characters[0])[0] || firstCharacter)))
+        setSelectedCharacters(matchesAll[matchSetIndex][matchIndex].map((matchPlayer)=>(characterData?.filter((character)=>character.id==playerData?.filter(({name})=>matchPlayer==name)[0].characters[0])[0] || firstCharacter)))
       }
     }
     setErrorMessage(error2?.message || '')
@@ -206,7 +252,7 @@ function App() {
       setLive(stateData?.filter((state)=>state.id=='playing')[0].enabled)
     }
     setErrorMessage(error3?.message || '')
-    setLivePlayers(matches[matchIndex])
+    setLivePlayers(matchesAll[matchSetIndex][matchIndex])
   }
 
   const setLivePlayers = async (currentPlayers: Array<string>) => {
@@ -246,7 +292,7 @@ function App() {
           </Select>
           <form onSubmit={handleSubmit(onSubmit)}>
             <FormControl isInvalid={errors.name?.message != ''}>
-              {matches[matchIndex].map((player, playerIndex) =>
+              {matchesAll[matchSetIndex][matchIndex].map((player, playerIndex) =>
                 <Flex key={player} flexDir='row' justify={'space-between'} alignItems='center' gap='2'>
                   <Box>
                     {player}
@@ -279,6 +325,12 @@ function App() {
                 <Spacer />
                 <Box>Match #:</Box>
                 <Input id={'inputMatchIndex'} value={matchIndex+1} width='auto' onChange={(e)=>setMatchIndex(parseInt(e.currentTarget.value)-1)}/>
+                <Spacer />
+              </Flex>
+              <Flex flexDir='row' justify={'space-between'} alignItems='center' gap='2'>
+                <Spacer />
+                <Box>Match Set #:</Box>
+                <Input id={'inputMatchSetIndex'} value={matchSetIndex+1} width='auto' onChange={(e)=>setMatchSetIndex(parseInt(e.currentTarget.value)-1)}/>
                 <Spacer />
               </Flex>
               <FormErrorMessage>
