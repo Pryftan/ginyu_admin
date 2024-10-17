@@ -60,6 +60,37 @@ const matchesAll = [
     ['Billy', 'Coleman', 'Javier', 'Kirk']
   ],
   [
+    ['Aamer', 'Chris', 'Sasha', 'Javier'], 
+    ['Billy', 'Chris', 'Sasha', 'Kirk'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Chris', 'Sasha', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
+    ['Billy', 'Sasha', 'Javier', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Chris', 'Sasha', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Sasha', 'Javier'], 
+    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
+    ['Aamer', 'Sasha', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Sasha', 'Javier'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Sasha', 'Kirk']
+  ],
+  [
+    ['Aamer', 'Chris', 'Sasha', 'Kirk'], 
+    ['Billy', 'Chris', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Sasha', 'Kirk'], 
+    ['Aamer', 'Chris', 'Sasha', 'Javier'], 
+    ['Aamer', 'Sasha', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Sasha', 'Kirk'], 
+    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
+    ['Billy', 'Chris', 'Sasha', 'Javier'], 
+    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
+    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
+    ['Billy', 'Sasha', 'Javier', 'Kirk']
+  ],
+  [
     ['Aamer', 'Billy', 'Chris', 'Kirk'], 
     ['Aamer', 'Billy', 'Javier', 'Kirk'], 
     ['Billy', 'Chris', 'Javier', 'Kirk'], 
