@@ -77,10 +77,10 @@ const matchesAll = [
     ['Aamer', 'Billy', 'Sasha', 'Kirk']
   ],
   [
-    ['Aamer', 'Chris', 'Sasha', 'Kirk'], 
+    ['Aamer', 'Billy', 'Sasha', 'Kirk'], 
     ['Billy', 'Chris', 'Javier', 'Kirk'], 
     ['Aamer', 'Billy', 'Chris', 'Javier'], 
-    ['Aamer', 'Billy', 'Sasha', 'Kirk'], 
+    ['Aamer', 'Chris', 'Sasha', 'Kirk'], 
     ['Aamer', 'Chris', 'Sasha', 'Javier'], 
     ['Aamer', 'Sasha', 'Javier', 'Kirk'], 
     ['Billy', 'Chris', 'Sasha', 'Kirk'], 
