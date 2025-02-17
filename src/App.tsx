@@ -224,6 +224,27 @@ function App() {
         "top": 70,
         "hides": false
       }
+    } else if (type == 'Chief') {
+      coverData = {
+        "image": "/covers/tribalchief.png",
+        "size": 500,
+        "top": 90,
+        "hides": false
+      }
+    } else if (type == 'Piranha') {
+      coverData = {
+        "image": "/covers/piranha.png",
+        "size": 500,
+        "top": 20,
+        "hides": false
+      }
+    } else if (type == 'Sephiroth') {
+      coverData = {
+        "image": "/covers/sephiroth.png",
+        "size": 500,
+        "top": 90,
+        "hides": false
+      }
     }
     const { error } = await supabase
       .from('states')
@@ -384,7 +405,7 @@ function App() {
               onChange={(e: React.ChangeEvent<HTMLSelectElement>)=>{
                 setSelectedCover(e.currentTarget.value)
             }}>
-              {["DK", "Yoshi", "Aamer", "Luigi", "Smash"].map((opt) =>
+              {["DK", "Yoshi", "Aamer", "Luigi", "Smash", "Chief", "Piranha", "Sephiroth"].map((opt) =>
                 <option value={opt}>{opt}</option>
               )}
             </Select>
