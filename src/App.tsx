@@ -10,6 +10,18 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
 const matchesAll = [
+  [ // 5 of us, no Kirk
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Chris', 'Javier', 'Sasha'], 
+    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
+    ['Aamer', 'Chris', 'Javier', 'Sasha'], 
+    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
+    ['Aamer', 'Billy', 'Chris', 'Javier'], 
+    ['Aamer', 'Billy', 'Javier', 'Sasha'], 
+    ['Billy', 'Chris', 'Javier', 'Sasha'], 
+    ['Aamer', 'Billy', 'Javier', 'Sasha'], 
+    ['Billy', 'Chris', 'Javier', 'Sasha']
+  ],
   [ // basic all 7 attending, 14 matches
     ['Aamer', 'Kirk', 'Sasha', 'Coleman'], 
     ['Billy', 'Javier', 'Kirk', 'Coleman'], 
