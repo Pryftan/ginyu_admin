@@ -10,64 +10,9 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
 const matchesAll = [
-  [ // 5 of us, no Kirk
-    ['Aamer', 'Billy', 'Chris', 'Javier'], 
-    ['Aamer', 'Chris', 'Javier', 'Sasha'], 
-    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
-    ['Aamer', 'Chris', 'Javier', 'Sasha'], 
-    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
-    ['Aamer', 'Billy', 'Chris', 'Javier'], 
-    ['Aamer', 'Billy', 'Javier', 'Sasha'], 
-    ['Billy', 'Chris', 'Javier', 'Sasha'], 
-    ['Aamer', 'Billy', 'Javier', 'Sasha'], 
-    ['Billy', 'Chris', 'Javier', 'Sasha']
-  ],
-  [ // basic all 7 attending, 14 matches
-    ['Aamer', 'Kirk', 'Sasha', 'Coleman'], 
-    ['Billy', 'Javier', 'Kirk', 'Coleman'], 
-    ['Billy', 'Chris', 'Javier', 'Sasha'], 
-    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Chris', 'Coleman'], 
-    ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
-    ['Aamer', 'Billy', 'Javier', 'Coleman'], 
-    ['Aamer', 'Javier', 'Kirk', 'Sasha'], 
-    ['Aamer', 'Chris', 'Sasha', 'Coleman'], 
-    ['Billy', 'Chris', 'Javier', 'Kirk'], 
-    ['Aamer', 'Chris', 'Javier', 'Sasha'], 
-    ['Billy', 'Kirk', 'Sasha', 'Coleman'], 
-    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
-    ['Chris', 'Javier', 'Kirk', 'Coleman']
-  ],
-  [ // no Coleman, 12 matches
-    ['Aamer', 'Chris', 'Sasha', 'Kirk'], 
-    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Sasha', 'Kirk'], 
-    ['Aamer', 'Chris', 'Sasha', 'Javier'], 
-    ['Billy', 'Chris', 'Javier', 'Kirk'], 
-    ['Aamer', 'Chris', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
-    ['Aamer', 'Billy', 'Sasha', 'Javier'], 
-    ['Chris', 'Sasha', 'Javier', 'Kirk'], 
-    ['Billy', 'Sasha', 'Javier', 'Kirk'], 
-    ['Aamer', 'Billy', 'Chris', 'Kirk'], 
-    ['Billy', 'Chris', 'Sasha', 'Javier']
-  ],
-  [ // all 7, Kirk not in first three
-    ['Billy', 'Chris', 'Javier', 'Sasha'], 
-    ['Aamer', 'Chris', 'Sasha', 'Coleman'], 
-    ['Aamer', 'Billy', 'Chris', 'Sasha'], 
-    ['Aamer', 'Kirk', 'Sasha', 'Coleman'], 
-    ['Billy', 'Javier', 'Kirk', 'Coleman'], 
-    ['Aamer', 'Billy', 'Chris', 'Coleman'], 
-    ['Aamer', 'Billy', 'Javier', 'Kirk'], 
-    ['Chris', 'Kirk', 'Sasha', 'Coleman'], 
-    ['Aamer', 'Billy', 'Javier', 'Coleman'], 
-    ['Aamer', 'Javier', 'Kirk', 'Sasha'], 
-    ['Billy', 'Chris', 'Javier', 'Kirk'], 
-    ['Aamer', 'Chris', 'Javier', 'Sasha'], 
-    ['Billy', 'Kirk', 'Sasha', 'Coleman'], 
-    ['Chris', 'Javier', 'Kirk', 'Coleman']
-  ]
+  [['Aamer', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Javier', 'Sasha', 'Andrei'], ['Billy', 'Javier', 'Sasha', 'Coleman'], ['Billy', 'Chris', 'Sasha', 'Coleman'], ['Billy', 'Javier', 'Sasha', 'Andrei'], ['Aamer', 'Billy', 'Kirk', 'Andrei'], ['Billy', 'Javier', 'Kirk', 'Coleman'], ['Aamer', 'Chris', 'Sasha', 'Coleman'], ['Aamer', 'Chris', 'Kirk', 'Andrei'], ['Chris', 'Kirk', 'Coleman', 'Andrei'], ['Billy', 'Kirk', 'Sasha', 'Andrei'], ['Aamer', 'Chris', 'Javier', 'Coleman']],
+  [['Aamer', 'Billy', 'Kirk', 'Sasha'], ['Chris', 'Javier', 'Sasha', 'Coleman'], ['Aamer', 'Chris', 'Javier', 'Kirk'], ['Billy', 'Chris', 'Javier', 'Coleman'], ['Billy', 'Chris', 'Kirk', 'Sasha'], ['Aamer', 'Billy', 'Javier', 'Coleman'], ['Aamer', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Javier'], ['Aamer', 'Billy', 'Kirk', 'Coleman'], ['Javier', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Sasha'], ['Chris', 'Javier', 'Kirk', 'Sasha'], ['Aamer', 'Chris', 'Kirk', 'Coleman'], ['Billy', 'Javier', 'Sasha', 'Coleman']],
+  [['Aamer', 'Kirk', 'Sasha', 'Coleman'], ['Billy', 'Javier', 'Kirk', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Sasha'], ['Aamer', 'Billy', 'Javier', 'Kirk'], ['Aamer', 'Billy', 'Chris', 'Coleman'], ['Chris', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Javier', 'Coleman'], ['Aamer', 'Javier', 'Kirk', 'Sasha'], ['Aamer', 'Chris', 'Sasha', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Chris', 'Javier', 'Sasha'], ['Billy', 'Kirk', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Sasha'], ['Chris', 'Javier', 'Kirk', 'Coleman']]
 ]
 
 type Player = Database['public']['Tables']['players']['Row']
