@@ -138,6 +138,13 @@ function App() {
         "top": 90,
         "hides": false
       }
+    } else if (type == 'Belt') {
+      coverData = {
+        "image": "/covers/belt.png",
+        "size": 600,
+        "top": 110,
+        "hides": false
+      }
     }
     const { error } = await supabase
       .from('states')
@@ -298,7 +305,7 @@ function App() {
               onChange={(e: React.ChangeEvent<HTMLSelectElement>)=>{
                 setSelectedCover(e.currentTarget.value)
             }}>
-              {["DK", "Yoshi", "Aamer", "Luigi", "Smash", "Chief", "Piranha", "Sephiroth"].map((opt) =>
+              {["DK", "Yoshi", "Aamer", "Luigi", "Smash", "Chief", "Piranha", "Sephiroth", "Belt"].map((opt) =>
                 <option value={opt}>{opt}</option>
               )}
             </Select>
