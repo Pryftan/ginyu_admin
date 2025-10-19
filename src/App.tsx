@@ -10,7 +10,7 @@ const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZS
 const supabase = createClient<Database>(supabaseUrl, supabaseKey)
 
 const matchesAll = [
-  [['Aamer', 'Chris', 'Javier', 'Coleman'], ['Aamer', 'Billy', 'Javier', 'Kirk'], ['Billy', 'Javier', 'Kirk', 'Coleman'], ['Chris', 'Javier', 'Kirk', 'Coleman'], ['Aamer', 'Chris', 'Kirk', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Coleman'], ['Aamer', 'Chris', 'Javier', 'Sasha'], ['Aamer', 'Kirk', 'Sasha', 'Coleman'], ['Billy', 'Chris', 'Sasha', 'Coleman'], ['Billy', 'Javier', 'Kirk', 'Sasha'], ['Billy', 'Chris', 'Javier', 'Sasha'], ['Aamer', 'Billy', 'Kirk', 'Sasha'], ['Billy', 'Javier', 'Sasha', 'Coleman'], ['Aamer', 'Chris', 'Kirk', 'Sasha']],
+  [['Aamer', 'Kirk', 'Sasha', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Javier', 'Kirk', 'Sasha'], ['Aamer', 'Billy', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Kirk'], ['Chris', 'Javier', 'Sasha', 'Coleman'], ['Billy', 'Chris', 'Javier', 'Sasha'], ['Aamer', 'Javier', 'Kirk', 'Coleman'], ['Chris', 'Javier', 'Kirk', 'Coleman'], ['Aamer', 'Billy', 'Javier', 'Coleman'], ['Aamer', 'Chris', 'Kirk', 'Sasha'], ['Billy', 'Chris', 'Sasha', 'Coleman'], ['Aamer', 'Billy', 'Chris', 'Javier'], ['Billy', 'Kirk', 'Sasha', 'Coleman']],
   [['Chris', 'Coleman', 'Javier', 'Kirk'], ['Aamer', 'Billy', 'Chris', 'Kirk'], ['Aamer', 'Billy', 'Coleman', 'Javier'], ['Aamer', 'Chris', 'Coleman', 'Javier'], ['Aamer', 'Billy', 'Coleman', 'Kirk'], ['Billy', 'Chris', 'Coleman', 'Javier'], ['Aamer', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Billy', 'Chris', 'Coleman'], ['Billy', 'Coleman', 'Javier', 'Kirk'], ['Billy', 'Chris', 'Javier', 'Kirk'], ['Aamer', 'Billy', 'Javier', 'Kirk'], ['Aamer', 'Chris', 'Coleman', 'Kirk']]
 ]
 
